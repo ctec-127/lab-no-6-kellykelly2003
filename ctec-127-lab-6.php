@@ -17,49 +17,48 @@
     {
         // conversion formulas
         // If unit 1 equals celsius then.....
-        if ($unit1 == "celsius") {
-            if ($unit2 == "fahrenheit"){
-                // Celsius to Fahrenheit = T(°C) × 9/5 + 32
-                $convertedTemp = ($temp * 9/5) + 32;
-                echo "<h2>$temp degree's Celsius is equal to $convertedTemp degree's Fahrenheit</h2>";
-            } elseif ($unit2 == "kelvin") {
-                // Celsius to Kelvin = T(°C) + 273.15
-                $convertedTemp = $temp + 273.15;
-                echo "<h2>$temp degree's Celsius is equal to $convertedTemp degree's Kelvin</h2>";
-            } elseif ($unit2 == "celsius"){
-                $convertedTemp = $temp;
-                echo "<h2>$temp degree's Celsius is equal to $convertedTemp degree's Celsius</h2>";
-            }
+        if (is_numeric($temp)) {
+            if ($unit1 == "celsius") {
+                if ($unit2 == "fahrenheit"){
+                    // Celsius to Fahrenheit = T(°C) × 9/5 + 32
+                    $convertedTemp = ($temp * 9/5) + 32;
+                    echo "<h2>$temp degree's Celsius is equal to $convertedTemp degree's Fahrenheit</h2>";
+                } elseif ($unit2 == "kelvin") {
+                    // Celsius to Kelvin = T(°C) + 273.15
+                    $convertedTemp = $temp + 273.15;
+                    echo "<h2>$temp degree's Celsius is equal to $convertedTemp degree's Kelvin</h2>";
+                } elseif ($unit2 == "celsius"){
+                    $convertedTemp = $temp;
+                    echo "<h2>$temp degree's Celsius is equal to $convertedTemp degree's Celsius</h2>";
+                }
             } elseif ($unit1 == "fahrenheit") {
-            if ($unit2 == "celsius") {
-                // Fahrenheit to Celsius = (T(°F) - 32) × 5/9
-                $convertedTemp = ($temp - 32) * 5/9;
-                echo "<h2>$temp degree's Fahrenheit is equal to $convertedTemp degree's Celsius</h2>";
-            } elseif ($unit2 == "kelvin") {
-                // Fahrenheit to Kelvin = (T(°F) + 459.67)× 5/9
-                $convertedTemp = ($temp + 459.67) * 5/9;
-                echo "<h2>$temp degree's Fahrenheit is equal to $convertedTemp degree's Kelvin</h2>";
-            } elseif ($unit2 == "fahrenheit") {
-                $convertedTemp = ($temp);
-                echo "<h2>$temp degree's Fahrenheit is equal to $convertedTemp degree's Fahrenheit</h2>";
-            }
-        } elseif ($unit1 == "kelvin") {
-            
-            if ($unit2 == "fahrenheit"){
-                // Kelvin to Fahrenheit = T(K) × 9/5 - 459.67
-                $convertedTemp = $temp * 9/5 - 459.67;
-                echo "<h2>$temp degree's Kelvin is equal to $convertedTemp degree's Fahrenheit</h2>";
-            } elseif ($unit2 == "celsius") {
-                // Kelvin to Celsius = T(K) - 273.15
-                $convertedTemp = $temp -273.15;
-                echo "<h2>$temp degree's Kelvin is equal to $convertedTemp degree's Celsius</h2>";
-            } elseif ($unit2 == "kelvin") {
-                $convertedTemp = $temp;
-                echo "<h2>$temp degree's Kelvin is equal to $convertedTemp degree's Kelvin</h2>";
-            }
-        }else echo "<h2>Please select a temperature to convert</h2>";
-        return $convertedTemp;
-
+                if ($unit2 == "celsius") {
+                    // Fahrenheit to Celsius = (T(°F) - 32) × 5/9
+                    $convertedTemp = ($temp - 32) * 5/9;
+                    echo "<h2>$temp degree's Fahrenheit is equal to $convertedTemp degree's Celsius</h2>";
+                } elseif ($unit2 == "kelvin") {
+                    // Fahrenheit to Kelvin = (T(°F) + 459.67)× 5/9
+                    $convertedTemp = ($temp + 459.67) * 5/9;
+                    echo "<h2>$temp degree's Fahrenheit is equal to $convertedTemp degree's Kelvin</h2>";
+                } elseif ($unit2 == "fahrenheit") {
+                    $convertedTemp = ($temp);
+                    echo "<h2>$temp degree's Fahrenheit is equal to $convertedTemp degree's Fahrenheit</h2>";
+                }
+            } elseif ($unit1 == "kelvin") {
+                if ($unit2 == "fahrenheit"){
+                    // Kelvin to Fahrenheit = T(K) × 9/5 - 459.67
+                    $convertedTemp = $temp * 9/5 - 459.67;
+                    echo "<h2>$temp degree's Kelvin is equal to $convertedTemp degree's Fahrenheit</h2>";
+                } elseif ($unit2 == "celsius") {
+                    // Kelvin to Celsius = T(K) - 273.15
+                    $convertedTemp = $temp -273.15;
+                    echo "<h2>$temp degree's Kelvin is equal to $convertedTemp degree's Celsius</h2>";
+                } elseif ($unit2 == "kelvin") {
+                    $convertedTemp = $temp;
+                    echo "<h2>$temp degree's Kelvin is equal to $convertedTemp degree's Kelvin</h2>";
+                }
+            }else echo "<h2>Please select the units you would like to convert the temperature to</h2>";
+        } else echo "<h2>Please enter a number into the temperature field to convert it!</h2>";
         // You need to develop the logic to convert the temperature based on the selections and input made
 
     } // end function
