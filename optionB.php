@@ -17,46 +17,39 @@
     {
         // conversion formulas
         // If unit 1 equals celsius then.....
-        if ($unit1 == "celsius") {
-            if ($unit2 == "fahrenheit"){
+        if ($unit1 == "celsius" && $unit2 == "fahrenheit") {
                 // Celsius to Fahrenheit = T(°C) × 9/5 + 32
                 $convertedTemp = ($temp * 9/5) + 32;
                 echo "<h2>$temp degree's Celsius is equal to $convertedTemp degree's Fahrenheit</h2>";
-            } elseif ($unit2 == "kelvin") {
+        } elseif ($unit1 == "celsius" && $unit2 == "kelvin") {
                 // Celsius to Kelvin = T(°C) + 273.15
                 $convertedTemp = $temp + 273.15;
                 echo "<h2>$temp degree's Celsius is equal to $convertedTemp degree's Kelvin</h2>";
-            } elseif ($unit2 == "celsius"){
+        } elseif ($unit1 == "celsius" && $unit2 == "celsius"){
                 $convertedTemp = $temp;
                 echo "<h2>$temp degree's Celsius is equal to $convertedTemp degree's Celsius</h2>";
-            }
-            } elseif ($unit1 == "fahrenheit") {
-            if ($unit2 == "celsius") {
+        } elseif ($unit1 == "fahrenheit" && $unit2 == "celsius") {
                 // Fahrenheit to Celsius = (T(°F) - 32) × 5/9
                 $convertedTemp = ($temp - 32) * 5/9;
                 echo "<h2>$temp degree's Fahrenheit is equal to $convertedTemp degree's Celsius</h2>";
-            } elseif ($unit2 == "kelvin") {
+        } elseif ($unit1 == "fahrenheit" && $unit2 == "kelvin") {
                 // Fahrenheit to Kelvin = (T(°F) + 459.67)× 5/9
                 $convertedTemp = ($temp + 459.67) * 5/9;
                 echo "<h2>$temp degree's Fahrenheit is equal to $convertedTemp degree's Kelvin</h2>";
-            } elseif ($unit2 == "fahrenheit") {
+        } elseif ($unit1 == "fahrenheit" && $unit2 == "fahrenheit") {
                 $convertedTemp = ($temp);
                 echo "<h2>$temp degree's Fahrenheit is equal to $convertedTemp degree's Fahrenheit</h2>";
-            }
-        } elseif ($unit1 == "kelvin") {
-            
-            if ($unit2 == "fahrenheit"){
+        } elseif ($unit1 == "kelvin" && $unit2 == "fahrenheit") {
                 // Kelvin to Fahrenheit = T(K) × 9/5 - 459.67
                 $convertedTemp = $temp * 9/5 - 459.67;
                 echo "<h2>$temp degree's Kelvin is equal to $convertedTemp degree's Fahrenheit</h2>";
-            } elseif ($unit2 == "celsius") {
+        } elseif ($unit1 == "kelvin" && $unit2 == "celsius") {
                 // Kelvin to Celsius = T(K) - 273.15
                 $convertedTemp = $temp -273.15;
                 echo "<h2>$temp degree's Kelvin is equal to $convertedTemp degree's Celsius</h2>";
-            } elseif ($unit2 == "kelvin") {
+        } elseif ($unit1 == "kelvin" && $unit2 == "kelvin") {
                 $convertedTemp = $temp;
                 echo "<h2>$temp degree's Kelvin is equal to $convertedTemp degree's Kelvin</h2>";
-            }
         }else echo "<h2>Please select a temperature to convert</h2>";
         return $convertedTemp;
 
@@ -94,10 +87,10 @@
                                 id="temp">
 
             <select name="originalunit">
-                <option value="--Select--">--Select--</option>
-                <option value="celsius"     <?php if((isset($originalUnit)) && ($originalUnit == "celsius"))    echo 'selected'?>>Celsius</option>
-                <option value="fahrenheit"  <?php if((isset($originalUnit)) && ($originalUnit == "fahrenheit")) echo 'selected'?>>Fahrenheit</option>
-                <option value="kelvin"      <?php if((isset($originalUnit)) && ($originalUnit == "kelvin"))     echo 'selected'?>>Kelvin</option>
+                <option value="--Select--"  <?php $originalTemperature  == "--Select--" ? "selected" : null ?>>--Select--   </option>
+                <option value="celsius"     <?php $originalUnit         == "celsius"    ? "selected" : null ?>>Celsius      </option>
+                <option value="fahrenheit"  <?php $originalUnit         == "fahrenheit" ? "selected" : null ?>>Fahrenheit   </option>
+                <option value="kelvin"      <?php $originalUnit         == "kelvin"     ? "selected" : null ?>>Kelvin       </option>
             </select>
         </div>
 
@@ -111,16 +104,16 @@
                                 id="convertedtemp" disabled>
 
             <select name="conversionunit">
-                <option value="--Select--">--Select--</option>
-                <option value="celsius" <?php if((isset($conversionUnit)) && ($conversionUnit == "celsius")) echo 'selected'?>>Celsius</option>
-                <option value="fahrenheit" <?php if((isset($conversionUnit)) && ($conversionUnit == "fahrenheit")) echo 'selected'?>>Fahrenheit</option>
-                <option value="kelvin"<?php if((isset($conversionUnit)) && ($conversionUnit == "kelvin")) echo 'selected'?>>Kelvin</option>
+                <option value="--Select--"  <?php $originalTemperature  == "--Select--" ? "selected" : null ?>>--Select--   </option>>--Select--</option>
+                <option value="celsius"     <?php $conversionUnit       == "celsius"    ? "selected" : null ?>>Celsius      </option>
+                <option value="fahrenheit"  <?php $conversionUnit       == "fahrenheit" ? "selected" : null ?>>Fahrenheit   </option>
+                <option value="kelvin"      <?php $conversionUnit       == "kelvin"     ? "selected" : null ?>>Kelvin       </option>
             </select>
         </div>
         <input type="submit" value="Convert" />
     </form>
     <br><br>
-    <img src="img/therms.jpg" alt="Image of thermometer" width=794>
+    <img src="img/therms.jpg" alt="Image of thermometer" width=800>
 </body>
 
 </html>
